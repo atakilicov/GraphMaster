@@ -5,7 +5,7 @@ import java.util.*;
 public class HashTable {
 
     private static int TABLE_SIZE = 100;
-    private HashNode[] table;
+    HashNode[] table;
 
 
     public HashTable() {
@@ -23,6 +23,7 @@ public class HashTable {
     }
 
     public int getValue(String key) {
+        key=key.toUpperCase();
         int hash = Hash(key);
 
         while (table[hash] != null && !table[hash].getKey().equals(key)) {
@@ -34,6 +35,7 @@ public class HashTable {
         } else {
             return table[hash].getValue();
         }
+
     }
 
     public HashNode gethashnode(int index){
@@ -51,18 +53,20 @@ public class HashTable {
         private int value;
 
         public HashNode(String key, int value) {
-            this.key = key;
-            this.value = value;
+           this.key = key;
+          this.value = value;
         }
 
         public String getKey() {
-            return key;
+            return key.toUpperCase();
         }
 
         public int getValue() {
             return value;
         }
     }
-}
+
+
+    }
 
 
