@@ -36,12 +36,17 @@ public class HashTable {
         }
     }
 
+    public HashNode gethashnode(int index){
+
+        return table[index];
+    }
+
     private int Hash(String key) {
         return Math.abs(key.hashCode() % TABLE_SIZE);
 
     }
 
-    private static class HashNode {
+    public static class HashNode {
         private String key;
         private int value;
 

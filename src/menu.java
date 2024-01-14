@@ -10,17 +10,17 @@ public class menu {
 
 
         System.out.println("enter the operation you want to do\n"+"1-Read Graph From File" +
-                "2-Find Is There A Path?" +
-                "3- BFS vertices" +
-                "4-DFS vertices" +
-                "5-Find The Shortest Path lenght" +
-                "6-Find The Number Of Paths" +
-                "7-Neighbour Names" +
-                "8-Find Highest Degrees Name" +
-                "9-Find if is Directed" +
-                "10-Find if they Adjacent" +
-                "11-Is there a cycle?" +
-                "12-Number of Vertices In component");
+                "2-Find Is There A Path?\n" +
+                "3- BFS vertices\n" +
+                "4-DFS vertices\n" +
+                "5-Find The Shortest Path lenght\n" +
+                "6-Find The Number Of Paths\n" +
+                "7-Neighbour Names\n" +
+                "8-Find Highest Degrees Name\n" +
+                "9-Find if is Directed\n" +
+                "10-Find if they Adjacent\n" +
+                "11-Is there a cycle?\n" +
+                "12-Number of Vertices In component\n");
 
 
         switch (input.nextInt()) {
@@ -48,7 +48,7 @@ public class menu {
                 break;
 
             case 5:
-                print(Graph.WhatIsShortestPathLength(askForWord("vertice 1"),askForWord("vertice2")));
+                Graph.WhatIsShortestPathLength(askForWord("vertice 1"),askForWord("vertice2"));
                 break;
             case 6:
                print(Graph.NumberOfSimplePaths(askForWord("vertice 1"),askForWord("vertice2")));

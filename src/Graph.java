@@ -1,6 +1,6 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import javax.print.attribute.IntegerSyntax;
+import java.io.*;
+import java.util.*;
 
 public class Graph {
 
@@ -11,7 +11,7 @@ public class Graph {
         private static int numVertices;
 
         public Graph() {
-              adjacencyMatrix = new int[MAX_VERTICES][MAX_VERTICES];
+            adjacencyMatrix = new int[MAX_VERTICES][MAX_VERTICES];
             vertexTable = new HashTable();
             numVertices = 0;
 
@@ -61,7 +61,7 @@ public class Graph {
 
 
 
-        public  void constructAdjacencyMatrix() {
+        public  void printAdjacencyMatrix() {
 
             System.out.println("Adjacency Matrix:");
             for (int i = 0; i < numVertices; i++) {
@@ -74,18 +74,40 @@ public class Graph {
 
 
         public  Boolean isThereAPath(String v1 , String v2){
+            return adjacencyMatrix[vertexTable.getValue(v1)][vertexTable.getValue(v2)]!=0;
 
         }
 
         public  void BFSfromTo(String v1, String v2){
+            boolean [] visited = new boolean[adjacencyMatrix.length];
+            LinkedList<Integer> queue = new LinkedList<Integer>();
+            visited[vertexTable.getValue(v1)] = true;
 
+            queue.add(vertexTable.getValue(v1));
+
+            while (queue.size()!=0) {
+                int tmp = queue.poll();
+                System.out.println(tmp + " ");
+                //
+
+                Iterator<Integer> i = ;
+                while (i.hasNext()) {
+                    int n = i.next();
+                    if (!visited[n]) {
+                        visited[n] = true;
+                        queue.add(n);
+                    }
+                }
+            }
         }
 
         public  void DFSfromTo(String v1, String v2){
 
         }
 
-        public  int WhatIsShortestPathLength(String v1, String v2){
+        public  void WhatIsShortestPathLength(String v1, String v2){
+
+
 
         }
 
@@ -94,16 +116,49 @@ public class Graph {
         }
 
         public  String Neighbors(String v1){
+            String nbrs = null;
+            int i,e =0;
+            boolean a = true;
+            for (int w = 0)
+               i = adjacencyMatrix[vertexTable.getValue(v1)][e];
+                if (i!=0){
+                    nbrs+=vertexTable.gethashnode(e).getKey();
+                    i++;
+
+                }
+
+            }
+
+
 
         }
 
-        public  String HighestDegree(){
+    public String HighestDegree() {
+        int high = adjacencyMatrix[0][0];
+        int v1 = 0, v2 = 0;
 
+        for (int i = 0; i < adjacencyMatrix.length; i++) {
+            for (int j = 0; j < adjacencyMatrix[i].length; j++) {
+                if (adjacencyMatrix[i][j] > high) {
+                    high = adjacencyMatrix[i][j];
+                    v1 = i;
+                    v2 = j;
+                }
+            }
         }
 
-        public  boolean IsDirected(){
 
-        }
+        return vertexTable.gethashnode(v1).getKey()+"and" + vertexTable.gethashnode(v2).getKey() + " has highest degree of " + high;
+    }
+
+
+
+
+    public  boolean IsDirected() {
+
+    }
+
+
 
         public  boolean AreTheyAdjacent(String v1, String v2){
 
